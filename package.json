@@ -1,0 +1,11 @@
+{
+  "name": "margs",
+  "version": "1.0.0",
+  "description": "xargs for nodejs",
+  "bin": {
+    "margs": "./bin/margs.js"
+  },
+  "keywords": [],
+  "author": "mingyard@163.com",
+  "license": "ISC"
+}
