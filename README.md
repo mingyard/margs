@@ -36,3 +36,9 @@ $ echo {0..8} | xargs -n 2 -P 3 echo
 6 7
 8
 ```
+
+```
+$ ming$ margs 1
+margs 2
+margs 3
+```
