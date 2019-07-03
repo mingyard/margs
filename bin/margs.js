@@ -1,10 +1,17 @@
 #!/usr/bin/env node
 const exec = require('child_process').exec
+const startTime = new Date().getTime()
 process.stdin.setEncoding('utf8');
 process.stdin.on('readable', () => {
-    const chunk = process.stdin.read();
+    let chunk;
     const args = new Margs();
-    if (chunk !== null) {
+    while (chunk = process.stdin.read()) {
+        const getDateTime = new Date().getTime()
+        //用时间差来判断，是否是后续输入(有些投机取巧，但是这是唯一能想到。区分出来是否是后续输入的方法。在读取超大文件的时候，可能会存在问题。)
+        // console.log(getDateTime - startTime)
+        if (getDateTime - startTime > 200) {
+            continue;
+        }
         args.todo(chunk)
     }
 });
@@ -84,7 +91,7 @@ class Margs {
                 this.p++
                 this.consume(doArray)
             } catch (error) {
-                console.log(error)
+                process.stdout.write(error)
             }
         }
     }
