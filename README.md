@@ -38,7 +38,7 @@ $ echo {0..8} | xargs -n 2 -P 3 echo
 ```
 
 ```
-$ ming$ margs 1
+$ margs 1
 margs 2
 margs 3
 ```
